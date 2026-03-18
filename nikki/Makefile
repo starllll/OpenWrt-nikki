@@ -1,15 +1,17 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=nikki
-PKG_VERSION:=2026.03.10
+PKG_VERSION:=2026.03.10.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/MetaCubeX/mihomo.git
-PKG_SOURCE_VERSION:=v1.19.21
-PKG_MIRROR_HASH:=f69a065d90dd5e565cb1e4b81d5c2074d6f97afca9a793fb5c09c2a0c2838369
+# PKG_SOURCE_URL:=https://github.com/MetaCubeX/mihomo.git
+PKG_SOURCE_URL:=https://github.com/starllll/mihomo.git
+PKG_SOURCE_VERSION:=v1.19.21.5
+# PKG_MIRROR_HASH:=f69a065d90dd5e565cb1e4b81d5c2074d6f97afca9a793fb5c09c2a0c2838369
+PKG_MIRROR_HASH:=860a1115ae6a2f8e03fb1da34fad5c85eb065ef05dbe95106c7bd5f619c2fff7
 
 PKG_LICENSE:=GPL3.0+
 PKG_MAINTAINER:=Joseph Mory <morytyann@gmail.com>
@@ -21,6 +23,7 @@ PKG_BUILD_FLAGS:=no-mips16
 PKG_BUILD_TIME:=$(shell date -u -Iseconds)
 
 GO_PKG:=github.com/metacubex/mihomo
+# GO_PKG:=github.com/starllll/mihomo
 GO_PKG_LDFLAGS_X:=$(GO_PKG)/constant.Version=$(PKG_SOURCE_VERSION) $(GO_PKG)/constant.BuildTime=$(PKG_BUILD_TIME)
 GO_PKG_TAGS:=with_gvisor
 
