@@ -62,6 +62,7 @@ jobs:
           FEEDNAME: nikki
           PACKAGES: luci-app-nikki
           NO_REFRESH_CHECK: true
+          V: s
 
       - name: upload
         uses: actions/upload-artifact@v4
