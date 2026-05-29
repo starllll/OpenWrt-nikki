@@ -57,14 +57,14 @@ jobs:
 
     steps:
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: build
         uses: openwrt/gh-action-sdk@main
         env:
           ARCH: ${{ matrix.arch }}-${{ matrix.branch }}
           FEEDNAME: nikki
-          PACKAGES: luci-app-nikki
+          PACKAGES: mihomo-alpha mihomo-meta nikki luci-app-nikki
           INDEX: 1
           KEY_BUILD: ${{ secrets.KEY_BUILD }}
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
@@ -79,13 +79,13 @@ jobs:
 
       - if: github.event_name == 'push' && startsWith(github.ref_name, 'v')
         name: release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: |
             nikki_${{ matrix.arch }}-${{ matrix.branch }}.tar.gz
 
       - name: upload
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: feed_nikki_${{ matrix.arch }}-${{ matrix.branch }}
           path: feed_nikki_${{ matrix.arch }}-${{ matrix.branch }}.tar.gz
@@ -97,7 +97,7 @@ jobs:
 
     steps:
       - name: download
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: feed_nikki_*
           merge-multiple: true
