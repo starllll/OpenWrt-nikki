@@ -8,7 +8,7 @@ PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/starllll/mihomo.git
 PKG_SOURCE_VERSION:=v1.19.27.2
-PKG_MIRROR_HASH:=
+PKG_MIRROR_HASH:=ede95fa06ba05efed91a5f0eca7ddd6efe115dbe8097f9c46dc4d4ba27d64dfb
 
 PKG_LICENSE:=GPL3.0+
 PKG_MAINTAINER:=Joseph Mory <morytyann@gmail.com>
